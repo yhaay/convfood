@@ -75,19 +75,34 @@ class Auth extends CI_Controller {
 	public function authentication()
 	{
 		$this->load->model('user_model');
-		$user = $this->user_model->select(array('email'=>$this->input->post('email')));
+		$user = $this->user_model->select(array('email'=>$this->input->post('email')))->row();
 		if (!function_exists('password_hash')) {
 			$this->load->helper('password');
 		}
 		if ($this->input->post('email') == $user->email && password_verify($this->input->post('password'), $user->password)) {
 			$this->session->set_userdata('is_login', true);
-			$this->load->helpoer('url');
+			$this->session->set_userdata('useridx', $user->useridx);
+			$this->session->set_userdata('name', $user->name);
+			$this->session->set_userdata('email', $user->email);
+			
+			if ($this->input->post('remember-me')) {
+				$this->session->sess_expire_on_close = TRUE;
+			}
+			
+			$this->load->helper('url');
 			redirect('/');
 		} else {
 			$this->session->set_flashdata('message', '로그인에 실패했습니다.');
 			$this->load->helper('url');
 			redirect('auth/login');
 		}
+	}
+	
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		$this->load->helper('url');
+		redirect('/');
 	}
 }
 

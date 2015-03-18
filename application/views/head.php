@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>컵라면 뭐 먹지?</title>
+	<title도슭</title>
 	<link href="/static/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<style type="text/css">
 
@@ -26,23 +26,24 @@ body {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">컵라면 뭐 먹지?</a>
+          <a class="navbar-brand" href="/">도슭</a>
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">CUPNOODLES <b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">FOOD <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="/listed/cupnoodle/all">ALL</a></li>
-						<li><a href="/listed/cupnoodle/best">BEST</a></li>
-						<li><a href="/listed/cupnoodle/new">NEW</a></li>
+						<li><a href="/listed/food/all">ALL</a></li>
+						<li><a href="/listed/food/best">BEST</a></li>
+						<li><a href="/listed/food/new">NEW</a></li>
 					</ul>
 				</li>
 				<li><a href="/listed/comment">COMMENTS</a><li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 			<?php if ($this->session->userdata('is_login')) {?>
-				<li><a href="auth/logount">로그아웃</a></li>
+				<li><a href="/myinfo/history"><?=$this->session->userdata('name')?></a></li>
+				<li><a href="/auth/logout">로그아웃</a></li>
 			<?php } else { ?>
 				<li><a href="/auth/login">로그인</a></li>
 				<li><a href="/auth/register">회원가입</a></li>
@@ -50,7 +51,7 @@ body {
 			</ul>
 			<form class="navbar-form navbar-right" action="/listed/search" method="get">
 				<div class="input-group">
-					<input type="text" name="keyword" placeholder="검색" class="form-control">
+					<input type="text" name="keyword" id="keyword" placeholder="검색" class="form-control">
 					<span class="input-group-btn">
 						<button class="btn btn-default" type="submit">검색</button>
 					</span>

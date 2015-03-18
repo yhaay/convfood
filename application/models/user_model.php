@@ -20,9 +20,16 @@ class User_model extends CI_Model {
 	
 	function select($option)
 	{
-		$result = $this->db->where($option)->row();
-		var_dump($this->db->last_query());
-		return $result;
+		$this->db->where($option);
+		$this->db->from('user');
+		return $this->db->get();
+	}
+	
+	function update($option)
+	{
+		$this->db->where('useridx',$option['useridx']);
+		$this->db->update('user',$option);
+		return 'success';
 	}
 
 }

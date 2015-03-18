@@ -20,7 +20,29 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('head');
-		$this->load->view('main');
+		
+		$this->load->model('food_model');
+		$this->load->model('comment_model');
+		
+		$option_best = array(
+				'order_by'=>'best',
+				'limit'=>'4'	
+		);
+		$option_new = array(
+				'order_by'=>'new',
+				'limit'=>'4'
+		);
+		$option_comment = array(
+				'order_by'=>'new',
+				'limit'=>'10'
+		);
+		
+		$list_best = $this->food_model->select($option_best)->result();
+		$list_new = $this->food_model->select($option_new)->result();
+		$list_comment = $this->comment_model->select($option_comment)->result();
+		
+		$this->load->view('main', array('list_best'=>$list_best, 'list_new'=>$list_new, 'list_comment'=>$list_comment));
+		
 		$this->load->view('footer');
 	}
 }

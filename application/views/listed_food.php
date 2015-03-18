@@ -1,23 +1,14 @@
 <div class="container">
 
-	<div class="jumbotron">
-		<div class="container">
-			<p>찾으시는 컵라면이 없나요? 알려 주세요!</p>
-			<p><a class="btn btn-default btn-lg">새로운 컵라면 제보하기</a></p>
-		</div>
-	</div>
-	<hr/>
-	'<?=$keyword?>' 검색 결과입니다.
+	<a class="btn btn-link" href="/listed/food/best">추천순</a>
+	<a class="btn btn-link" href="/listed/food/new">최신순</a>
 	<hr/>
 </div>
 
 <div class="infinite-scroll" data-ui="jscroll-default">
-	<a class="jscroll-next" href="/only/food/all?num=0&keyword=<?=$keyword?>"></a>
+	<a class="jscroll-next" href="/only/food/<?=$order_by?>?num=0"></a>
 </div>
 
-<script>
-	$('#keyword').val("<?=$keyword?>");
-</script>
 <style>
 .imageContainer {
 	position: relative;

@@ -11,19 +11,16 @@ class Listed extends CI_Controller {
 	public function comment()
 	{
 		$this->load->view('head');
-		$this->load->view('listed_comment');
+		$this->load->model('comment_model');
+		$lastidx = $this->comment_model->get_lastidx();
+		$this->load->view('listed_comment', array('lastidx'=>$lastidx));
 		$this->load->view('footer');
 	}
 	
-	public function cupnoodle($option)
+	public function food($order_by)
 	{
 		$this->load->view('head');
-		
-		if ($option == 'all')
-		{
-			$this->load->view('listed_cupnoodle');
-		}
-		
+		$this->load->view('listed_food', array('order_by'=>$order_by));
 		$this->load->view('footer');
 	}
 	

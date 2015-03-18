@@ -34,12 +34,12 @@
 </style>
 
 <div class="container">
-	<form class="form-signin" action="auth/authentication" method="post">
+	<form class="form-signin" action="/auth/authentication" method="post">
 		<h2 class="form-signin-heading">로그인</h2>
         <input type="email" class="form-control" name="email" id="email" placeholder="이메일" required autofocus>
         <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호">
     	<label class="checkbox" style="margin-left: 20px;">
-        	<input type="checkbox" value="remember-me"> 자동 로그인
+        	<input type="checkbox" id="remember-me" name="remember-me" value="1" checked="checked"> 자동 로그인
         </label>
     	<button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
 	</form>
