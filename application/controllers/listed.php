@@ -20,7 +20,7 @@ class Listed extends CI_Controller {
 	public function food($order_by)
 	{
 		$this->load->view('head');
-		$this->load->view('listed_food', array('order_by'=>$order_by));
+		$this->load->view('listed_food', array('order_by'=>$order_by, 'company'=>$this->input->get('company')));
 		$this->load->view('footer');
 	}
 	

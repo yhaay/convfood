@@ -42,6 +42,7 @@
         	<input type="checkbox" id="remember-me" name="remember-me" value="1" checked="checked"> 자동 로그인
         </label>
     	<button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+    	<a class="btn btn-lg btn-info btn-block" href="<?=$facebook['login_url']?>">페이스북으로 로그인</a>
 	</form>
 
 </div> <!-- /container -->

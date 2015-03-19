@@ -20,7 +20,7 @@
 </div>
 <?php if (count($list_food) > 0): ?>
 <div class="infinite-scroll" data-ui="jscroll-default">
-	<a class="jscroll-next" href="/only/food/<?=$order_by?>?num=<?=$num+1?><?php if ($keyword != ''):?>&keyword=<?=$keyword?><?php endif; ?>"></a>
+	<a class="jscroll-next" href="/only/food/<?=$order_by?>?num=<?=$num+1?><?php if ($keyword != ''):?>&keyword=<?=$keyword?><?php endif; ?><?php if ($company != ''):?>&company=<?=$company?><?php endif; ?>"></a>
 </div>
 <?php endif; ?>
 
@@ -32,3 +32,14 @@
 	}		
 </style>
 
+<script type="text/javascript" src="/static/js/jquery.raty.js"></script>
+<script>
+$(function() {
+	$('.star').raty({
+		score: function() { return parseFloat($(this).next().html())/2 },
+		readOnly: true,
+		half: true,
+		path: '/static/img/star',
+	});
+});
+</script>

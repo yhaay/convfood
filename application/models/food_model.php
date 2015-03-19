@@ -25,7 +25,7 @@ class Food_model extends CI_Model {
 	
 	function select_by_idx($idx)
 	{
-		$this->db->select('*, (select count(*) from comment where foodidx=food.foodidx) as commentcount, (select count(*) from rate where foodidx=food.foodidx) as ratecount', false);
+		$this->db->select('*, (select count(*) from comment where foodidx=food.foodidx) as commentcount, (select count(*) from rate where foodidx=food.foodidx) as ratecount, (select name from company where companyidx=food.companyidx) as company', false);
 		$this->db->where('foodidx', $idx);
 		$this->db->from('food');
 		return $this->db->get();
@@ -36,9 +36,13 @@ class Food_model extends CI_Model {
 		$order_by = $option['order_by'];
 		$num = (int)$option['num'];
 		$keyword = $option['keyword'];
+		$company = $option['company'];
 		
 		if ($keyword != '')
 			$this->db->like('name', $keyword);
+		
+		if ($company != '')
+			$this->db->where('companyidx', $company);
 				
 		if ($order_by == 'best')
 			$this->db->order_by('rate', 'desc');

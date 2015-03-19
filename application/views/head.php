@@ -26,18 +26,12 @@ body {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">도슭</a>
+          <a class="navbar-brand" href="/">도부끄</a>
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">FOOD <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="/listed/food/all">ALL</a></li>
-						<li><a href="/listed/food/best">BEST</a></li>
-						<li><a href="/listed/food/new">NEW</a></li>
-					</ul>
-				</li>
+				<li><a href="/about">ABOUT</a><li>
+				<li><a href="/listed/food/all">FOOD</a><li>
 				<li><a href="/listed/comment">COMMENTS</a><li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

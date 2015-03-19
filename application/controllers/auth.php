@@ -26,7 +26,7 @@ class Auth extends CI_Controller {
 	public function login()
 	{
 		$this->load->view('head');
-		$this->load->view('auth_login');
+		$this->load->view('auth_login', array('facebook'=>$this->facebook()));
 		$this->load->view('footer');
 	}
 	
@@ -50,7 +50,7 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('password-repeat', '비밀번호 확인', 'required');
 		
 		if ($this->form_validation->run() === false) {
-			$this->load->view('auth_register');
+			$this->load->view('auth_register', array('facebook'=>$this->facebook()));
 		} else {
 			if(!function_exists('password_hash')) {
 				$this->load->helper('password');
@@ -103,6 +103,31 @@ class Auth extends CI_Controller {
 		$this->session->sess_destroy();
 		$this->load->helper('url');
 		redirect('/');
+	}
+	
+	private function facebook() {
+		$this->load->library('facebook');
+		$user = $this->facebook->getUser();
+		
+		if ($user) {
+			try {
+				$data['user_profile'] = $this->facebook->api('/me');
+			} catch (FacebookApiException $e) {
+				$user = null;
+			}
+		} else {
+			$this->facebook->destroySession();
+		}
+		
+		if ($user) {
+			$data['logout_url'] = '/auth/logout';
+		} else {
+			$data['login_url'] = $this->facebook->getLoginUrl(array(
+					'redirect_uri' => '/auth/login',
+					'scope' => array("email")
+			));
+		}
+		return $data;
 	}
 }
 

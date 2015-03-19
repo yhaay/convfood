@@ -23,15 +23,17 @@ class Only extends CI_Controller {
 	public function food($order_by)
 	{
 		$num = $this->input->get('num');
+		$company = $this->input->get('company');
 		$keyword = $this->input->get('keyword');
 		$this->load->model('food_model');
 		$option = array(
 				'order_by' => $order_by,
 				'num' => $num,
-				'keyword' => $keyword
+				'keyword' => $keyword,
+				'company' => $company
 		);
 		$list_food = $this->food_model->select_paging($option)->result();
-		$this->load->view('only_food', array('list_food'=>$list_food, 'order_by'=>$order_by, 'num'=>$num, 'keyword'=>$keyword));
+		$this->load->view('only_food', array('list_food'=>$list_food, 'order_by'=>$order_by, 'num'=>$num, 'keyword'=>$keyword, 'company'=>$company));
 	}
 	
 	public function search()

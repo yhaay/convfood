@@ -6,10 +6,9 @@
 		</div>
 		<div class="col-md-8 col-xs-12">
 			<h3><?=$food->name?></h3>
-			<p><span id="rateSpan" name="rateSpan"><?=$food->rate?></span>점</p>
+			<p><span class="star"></span> <span id="rateSpan" name="rateSpan"><?=$food->rate?></span>점 <small>(<?=$food->ratecount?>명)</small></p>
 			<p><?=$food->price?>원</p>
 			<p><?=$food->company?></p>
-			<p><?=$food->ratecount?>개 평가</p>
 			<p><?=$food->commentcount?>개 코멘트</p>
 			<input type="hidden" name="foodidx" id="foodidx" value="<?=$food->foodidx?>">
 			<div id="ButtonBeforeDiv" name="ButtonBeforeDiv" style="display:inline-block;">

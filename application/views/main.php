@@ -25,7 +25,7 @@
 		</a> 
 	</div>
 	
-	<h3>BEST <a class="btn btn-info btn-xs" href="/listed/food/best">MORE</a></h3>
+	<h3>BEST <a class="btn btn-link btn-xs" href="/listed/food/best">MORE</a></h3>
 	<div class="row">
 	<?php foreach ($list_best as $row) :?>
 		<div class="col-md-3 col-xs-6">
@@ -45,7 +45,7 @@
 
 	<hr>
 	
-	<h3>NEW <a class="btn btn-info btn-xs" href="/listed/food/new">MORE</a></h3>
+	<h3>NEW <a class="btn btn-link btn-xs" href="/listed/food/new">MORE</a></h3>
 	<div class="row">
 	<?php foreach ($list_new as $row) :?>
 		<div class="col-md-3 col-xs-6">
@@ -65,7 +65,7 @@
 	
 	<hr>
 	
-	<h3>RECENT COMMENTS <a class="btn btn-info btn-xs" href="/listed/comment">MORE</a></h3>
+	<h3>RECENT COMMENTS <a class="btn btn-link btn-xs" href="/listed/comment">MORE</a></h3>
 	<table class="table table-hover">
 		<colgroup>
 			<col span="1" style="width:70px;">

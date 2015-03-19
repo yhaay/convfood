@@ -1,12 +1,21 @@
 <div class="container">
 
-	<a class="btn btn-link" href="/listed/food/best">추천순</a>
-	<a class="btn btn-link" href="/listed/food/new">최신순</a>
+	<div class="btn-group">
+		<a class="btn <?php if ($order_by == 'best') :?>btn-primary<?php else:?>btn-default<?php endif;?>" href="/listed/food/best?company=<?=$company?>">추천순</a>
+		<a class="btn <?php if ($order_by == 'new') :?>btn-primary<?php else:?>btn-default<?php endif;?>" href="/listed/food/new?company=<?=$company?>">최신순</a>
+	</div>
+	
+	<div class="btn-group">
+		<a class="btn <?php if ($company == '1') :?>btn-primary<?php else:?>btn-default<?php endif;?>" href="?company=1">CU</a>
+		<a class="btn <?php if ($company == '2') :?>btn-primary<?php else:?>btn-default<?php endif;?>" href="?company=2">GS25</a>
+		<a class="btn <?php if ($company == '3') :?>btn-primary<?php else:?>btn-default<?php endif;?>" href="?company=3">세븐일레븐</a>
+		<a class="btn <?php if ($company == '4') :?>btn-primary<?php else:?>btn-default<?php endif;?>" href="?company=4">미니스톱</a>
+		</div>
 	<hr/>
 </div>
 
 <div class="infinite-scroll" data-ui="jscroll-default">
-	<a class="jscroll-next" href="/only/food/<?=$order_by?>?num=0"></a>
+	<a class="jscroll-next" href="/only/food/<?=$order_by?>?num=0&company=<?=$company?>"></a>
 </div>
 
 <style>
